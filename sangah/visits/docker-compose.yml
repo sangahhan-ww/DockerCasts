@@ -1,0 +1,13 @@
+# supposed to contain all the options we would use to set up
+# 1. redis server
+# 2. this node app, mapping local port 8081 to the container's 8081
+
+version: '3'
+services: 
+  redis-server:
+    image: 'redis'
+  node-app:
+    restart: unless-stopped
+    build: .
+    ports:
+      - "4001:8081"
